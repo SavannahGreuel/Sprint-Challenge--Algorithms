@@ -39,9 +39,9 @@ bunnies decrements by one each time the runction recurses, giving it a O(n) valu
 
 ## Excercise II
 
-1) find the midpoint of the number of floors
-2) if the egg breaks at the midpoint, make a list of all the floors under the midpoint
-3) if the egg doesnt break, make a list of all the floors above the midpoint
+1) find the midpoint of the number of stories
+2) if the egg breaks at the midpoint, make a list of all the stories under the midpoint
+3) if the egg doesnt break, make a list of all the stories above the midpoint
 4) repeat above steps until you find the value of _f_.
 
-conclusion: this algorithm would be very similar to how binary search would work, making this a O(n log n)
+conclusion: this algorithm would be very similar to how binary search would work, making this a O(log n)
