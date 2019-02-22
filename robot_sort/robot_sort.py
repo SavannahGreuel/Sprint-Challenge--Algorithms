@@ -100,9 +100,37 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # turn robot on
+        # while robot is still on, items are not completley sorted
+        # start from left side, pick up item (first item is none, so swap first)
+        # moving left ro right, if item in list is greater than item held, swap item
+        # continue through whole list, if at end of list and no item was greater, put item down and start at begining of list again
+        # if item is equal, move to right until you find a greater item
+       
+        while not self.light_is_on(): # turns robot on
+            self.set_light_on()
+            while self.can_move_right(): # if the robot can move right, it will pick up its current item and move right
+                self.swap_item()
+                self.move_right()
 
+                if self.compare_item() == 1: # if the item the robot picked up is greater than the one in front of it, swap it, move left and swap
+                    self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    self.set_light_off() # if there is nothing left to compare, it will shut off the light, therefor ending the loop
+
+                if self.compare_item() == -1 or 0: # if item is less than one in list or equal in value, the robot will move to left, swap, and move back to the right, 
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+
+                
+
+            if not self.light_is_on():
+                # allow the robot to move left to go back over the numbers
+                while self.can_move_left():
+                    self.move_left()
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
